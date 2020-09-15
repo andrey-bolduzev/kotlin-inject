@@ -6,6 +6,7 @@ import assertk.assertions.isEqualTo
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.Inject
 import me.tatarka.inject.annotations.Provides
+import me.tatarka.inject.test.module.TFoo
 import kotlin.test.Test
 
 typealias NamedFoo1 = NamedFoo
@@ -47,6 +48,12 @@ typealias AnnotatedAliasedFoo<T> = @FooAnnotation GenericFoo<T>
     abstract val foo: AnnotatedAliasedFoo<String>
 
     @Provides fun foo(): AnnotatedAliasedFoo<String> = GenericFoo("1")
+}
+
+@Component abstract class TComponent {
+    abstract val foo: TFoo
+
+    @Provides fun foo(): TFoo = listOf("1")
 }
 
 class QualifierTest {

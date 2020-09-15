@@ -8,3 +8,6 @@ import me.tatarka.inject.annotations.Scope
 @Scope annotation class ExternalScope
 
 @ExternalScope @Inject class ScopedExternalFoo
+
+typealias TFoo = List<String>
+
